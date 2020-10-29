@@ -4,7 +4,7 @@ server = TCPServer.new '0.0.0.0', 8000
 
 def _response(session)
   body = '{"message": "Hello World"}'
-  puts 'body is', body
+  # puts 'body is', body
   session.puts <<-HEREDOC
 HTTP/1.1 200 OK
 Content-Type: application/json

@@ -1,0 +1,9 @@
+FROM python:3.8
+WORKDIR /app
+RUN pip3 install pipenv
+ADD Pipfile* ./
+RUN pipenv sync
+
+ADD *.py ./
+EXPOSE 8000
+ENTRYPOINT [ "pipenv", "run", "uvicorn", "--log-level", "error", "--host", "0.0.0.0", "main:app" ] 

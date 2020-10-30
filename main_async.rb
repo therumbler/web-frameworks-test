@@ -9,7 +9,7 @@ require 'async/http/protocol/response'
 endpoint = Async::HTTP::Endpoint.parse('http://0.0.0.0:8080')
 
 app = lambda do |request|
-	Protocol::HTTP::Response[200, {}, ['{"message":"Hello World"}']]
+	Protocol::HTTP::Response[200, {'content-type':'application/json'}, ['{"message":"Hello World"}']]
 end
 
 server = Async::HTTP::Server.new(app, endpoint)

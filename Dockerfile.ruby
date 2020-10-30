@@ -1,4 +1,7 @@
 FROM bitnami/ruby
-ADD main.rb .
-ENTRYPOINT ["ruby", "main.rb"]
+
+RUN gem install async-http       
+COPY *.rb ./
+# ENTRYPOINT ["ruby", "main.rb"]
+ENTRYPOINT [ "ruby","main_async.rb" ]
 # CMD "main.rb"
